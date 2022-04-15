@@ -1,0 +1,24 @@
+1. In which directory are you when you open a new terminal? /home/jovyan, which the root
+With which Unix-command do you find out the directory you are currently in? pwd
+2. How do you find out which Linux-shell you are working with? echo "$SHELL"
+3. How would you launch the text-editor emacs in a way that you can continue to use your shell while the emacs is running? *
+4. Launch your favorite text-editor (not necessarily emacs) and create a file me.txt containing your name. vim me.txt
+5. After finishing the file me.txt and closing your editor: Create a new subdirectory test1 in your home directory. mkdir test1
+6. Copy the file me.txt into the subdirectory as me_copy.txt (file copy-command) cp ./me.txt ./test1/me-new.txt
+7. Does your copy-operation from the previous-command use a relative or an absolute path for the target-directory? Our command uses relative path. Absolute path would be /home/jovyan/me.txt and /home/jovyan/test1/me-copy.txt
+8. Use the cd-command to move between your home-directory and the subdiretory. cd test1
+9. Rename the copy me_copy.txt to me_renames.txt while being in your home-directory. mv ./test1/me-copy.txt ./test1/me-copy-renames.txt
+10. Using echo and a redirection of the standard output, add your date of birth at the end of the copy me_copy.txt.
+echo 01.01.2000 > /home/jovyan/test1/me-copy-renames.txt
+11. Use the diff-command to compare the two files me.txt and me_copy.txt. If you did not yet use the diff-command, then look it up on the internet. diff ./me.txt ./test1/me-renames.txt
+12. Use the ls-command (with appropriate options) to show me.txt and me_copy.txt together with their file sizes. Can you tell why the file-size difference is what it is? ls -s ./me.txt ./test1/me-renames.txt The file sizes are different since me.txt is empty whereas me-renames.txt is not empty.
+13. Except for our Online-system, your Uni-ID credentials are also valid for the computers within the Physics computer pool (CIP-pool). The name of the CIP-pool machine you can login is cip-pool.physik.uni-bonn.de. Use the ssh-command to login into that machine. On the CIP-pool machine, create a subdirectory python_course and logout from the machine again. 
+ssh cip-pool-physik.uni-bonn.de
+mkdir python_course
+exit
+14. Use the command scp to copy the files me.txt and me_copy.txt into the python_course-subdirectory on the CIP-pool machine.
+scp ./test1/me-renames.txt s6ajsakt@cip-pool.physik.uni-bonn.de:/home/s6ajsakt/physik/python_course/
+scp ./test1/me_copy.txt s6ajsakt@cip-pool.physik.uni-bonn.de:/home/s6ajsakt/physik/python_course/
+15. Delete the subdirectory test1 and the copy of me.txt in it. Can you do this with a single command?
+rm -rf test1
+16. Put two copies of me.txt (choose your own file names) into a new subdirectory test2. Use the tar-command to backup that directory to test2.tar.gz
