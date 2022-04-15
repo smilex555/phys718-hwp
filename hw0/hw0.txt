@@ -22,4 +22,3 @@ scp ./test1/me_copy.txt s6ajsakt@cip-pool.physik.uni-bonn.de:/home/s6ajsakt/phys
 15. Delete the subdirectory test1 and the copy of me.txt in it. Can you do this with a single command?
 rm -rf test1
 16. Put two copies of me.txt (choose your own file names) into a new subdirectory test2. Use the tar-command to backup that directory to test2.tar.gz
-17. test 
