@@ -43,9 +43,8 @@ rm -rf test1
 cp me.txt test2/me_copy1.txt
 cp me.txt test2/me_copy2.txt
 tar -cvf test2.tar.gz -C test2 .
-Note: Use -cvzf to compress
+#Use -cvzf to compress
 17. Use tar to restore the contents of test2.tar.gz into a sub-directory test3
 mkdir test3 && tar -xvf test2.tar.gz -C test3
 
 More Complex Shell Usage
-
