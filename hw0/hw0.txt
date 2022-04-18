@@ -64,6 +64,28 @@ find . -name "*.txt"
 5. Count the total number of files returned in the last task.
 find . -name "*.txt" | wc -l
 6. Write a shell script to take a list of files and print the file names sorted according to their file size.
+#!/bin/bash
+echo "Enter directory (Enter . for current directory):"
+read dir
 
+echo "Listing all files in the directory:"$dir
+echo "This list is sorted by size (ascending)"
+echo "Folders and subdirectories are excluded"
+echo "Include size?"
+PS3="#)?"
+select option in yes no; do
+        case $option in
+                yes)
+                        find "$dir" -maxdepth 1 -type f -exec ls -lShr {} + | awk '{print "\n",$5,"\t",$9}'
+                        break;;
+                no)
+                        echo
+                        ls "$dir" -apShr | grep -v /
+                        break;;
+                *)
+                        echo "Invalid input. Type 1/2.";;
+        esac
+
+done
 7. Write down a for-loop to rename all text files in the current diretory. All files having the ending .txt should have the ending *.txt.old after the operation.
 for i in *.txt; do mv "$i" "${i%.txt}.txt.old"; done
